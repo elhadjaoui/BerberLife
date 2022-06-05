@@ -42846,11 +42846,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1214687776, guid: 0f50f6c994c01194195f0b739e15686d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1973170580, guid: 0f50f6c994c01194195f0b739e15686d, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7597927799449061377, guid: 0f50f6c994c01194195f0b739e15686d,
         type: 3}
