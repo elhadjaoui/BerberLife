@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 using UnityEngine;
 #if UNITY_2018_4_OR_NEWER
 using UnityEngine.XR;
@@ -105,6 +106,7 @@ namespace BNG {
         /// <summary>
         /// Instance of our Singleton
         /// </summary>
+      
         public static InputBridge Instance {
             get {
                 if (_instance == null) {
@@ -318,6 +320,14 @@ namespace BNG {
         public delegate void InputAction();
         public static event InputAction OnInputsUpdated;
 
+
+        // those Lines Added by Mohamed El Hadjaoui
+        public event Action OnAbuttonPressed;
+        public void AbuttonPressed()
+        {
+                OnAbuttonPressed?.Invoke();
+        }
+
         private void Awake() {
             // Destroy any duplicate instances that may have been created
             if (_instance != null && _instance != this) {
@@ -496,6 +506,13 @@ namespace BNG {
 
                 prevBool = AButton;
                 AButton = getFeatureUsage(primaryRightController, CommonUsages.primaryButton);
+                // Lines Added by Mohamed El Hadjaoui
+                if (prevBool != AButton)
+                {
+                    AbuttonPressed(); // Trigger the event
+                    Debug.Log("shiiit");
+                }
+                
                 AButtonDown = prevBool == false && AButton == true;
                 AButtonUp = prevBool == true && AButton == false;
 
@@ -551,7 +568,14 @@ namespace BNG {
             
             LeftTrigger = correctValue(SteamVR_Actions.vRIF_LeftTrigger.axis);
             RightTrigger = correctValue(SteamVR_Actions.vRIF_RightTrigger.axis);
+              // Lines Added by Mohamed El Hadjaoui
+            var prevBool = AButton;
             AButton = SteamVR_Actions.vRIF_AButton.state;
+             if (prevBool != AButton)
+                {
+                    AbuttonPressed(); // Trigger the event
+                    Debug.Log("shiiit");
+                }
             AButtonDown = SteamVR_Actions.vRIF_AButton.stateDown;
             BButton = SteamVR_Actions.vRIF_BButton.state;
             BButtonDown = SteamVR_Actions.vRIF_BButton.stateDown;
