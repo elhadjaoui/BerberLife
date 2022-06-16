@@ -7,8 +7,7 @@ public class OnPress : MonoBehaviour
 
 
     ToggleInterface toggle;
-    bool isToggle = true;
-    bool resume = true;
+
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -22,20 +21,11 @@ public class OnPress : MonoBehaviour
     void Start()
     {
         input.OnAbuttonPressed += ShowMenu;
+
     }
-  
-   public void ShowMenu()
+
+    public void ShowMenu()
     {
-        Debug.Log("DFADFA");
-          toggle.Toggle();
-        // if (input.AButton)
-        // {
-        //     if(!toggle.CanvasState())
-        //         toggle.Toggle();
-        // }
-        // else if (!input.AButton && toggle.CanvasState())
-        // {
-        //         toggle.Toggle();
-        // }   
+        toggle.Toggle();
     }
 }

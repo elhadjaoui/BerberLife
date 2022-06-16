@@ -1422,157 +1422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16629e6f345891348b53ecc2ace028bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refractionExpanded: 0
-  vertexPaintingExpanded: 0
-  surfaceFoamExpanded: 0
-  foamShadowsExpanded: 0
-  intersectionEffectsExpanded: 0
-  planarReflectionsExpanded: 0
-  causticsExpanded: 0
-  reflectionStrength: 0.82
-  reflectionFresnel: 2.5
-  causticsStrength: 2.09
-  causticsTexture: {fileID: 2800000, guid: f2c40b951cee11943a1f6d5ec1b42f2c, type: 3}
-  causticsSplit: 0.318
-  causticsSpeed: 0.219
-  causticsScale: 2.41
-  causticsShadowMask: 1
-  causticsLightMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
-  useLegacyCaustics: 0
-  causticsDepth: 0.6
-  useColorGradient: 0
-  colorGradient:
-    serializedVersion: 2
-    key0: {r: 0.5764706, g: 0, b: 0.827451, a: 1}
-    key1: {r: 0.29411766, g: 0, b: 0.50980395, a: 1}
-    key2: {r: 0, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 1, b: 0, a: 0}
-    key4: {r: 1, g: 1, b: 0, a: 0}
-    key5: {r: 1, g: 0.49803922, b: 0, a: 0}
-    key6: {r: 1, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 9306
-    ctime1: 18612
-    ctime2: 27918
-    ctime3: 37224
-    ctime4: 46530
-    ctime5: 55836
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 7
-    m_NumAlphaKeys: 2
-  colorGradientTexture: {fileID: 0}
-  shallowColor: {r: 0, g: 0.7725491, b: 0.62352943, a: 0.5019608}
-  deepColor: {r: 0.01176471, g: 0.28619754, b: 0.50980073, a: 1}
-  colorDepth: 0.8
-  horizonColor: {r: 0, g: 0.22737405, b: 0.8, a: 1}
-  horizonDistance: 20
-  shoreFade: 1
-  shoreColor: {r: 0, g: 0.98039216, b: 0.30188382, a: 0}
-  shoreStrength: 0
-  shoreBlend: 1
-  shoreDepth: 0.74
-  waveColor: {r: 0, g: 0, b: 0, a: 0}
-  underwaterColor: {r: 0.20388183, g: 0.30976194, b: 0.517647, a: 1}
-  underwaterColorStrength: 1
-  underwaterRefractionStrength: 0.099
-  surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
-  surfaceFoamSampling: {x: 0.62, y: 0}
-  surfaceFoamCutoff: 0.62
-  surfaceFoamDistortion: 0
-  surfaceFoamBlend: 1
-  surfaceFoamColor1: {r: 1, g: 1, b: 1, a: 0.3215686}
-  surfaceFoamColor2: {r: 1, g: 1, b: 1, a: 0.7294118}
-  surfaceFoamMovement: {x: 0.7, y: 0, z: 0.47, w: 0.01}
-  surfaceFoamDirection1: 0.7
-  surfaceFoamDirection2: 0.47
-  surfaceFoamSpeed1: 0
-  surfaceFoamSpeed2: 0.01
-  surfaceFoamTilingAndOffset: {x: -1, y: -1, z: 0.57, w: 0.22}
-  surfaceFoamOffsetX: -1
-  surfaceFoamOffsetY: -1
-  surfaceFoamScale1: 0.57
-  surfaceFoamScale2: 0.22
-  enableSurfaceFoam: 0
-  surfaceFoamHeightMask: 0
-  surfaceFoamHeightMaskSmoothness: 0
-  enableHeightMask: 0
-  foamShadowStrength: 0.45
-  foamShadowDepth: 10
-  surfaceFoamShadowProjection: 15
-  intersectionFoamShadowProjection: 4.6
-  foamMovement: 0
-  intersectionFoamDepth: 0.72
-  intersectionFoamTexture: {fileID: 2800000, guid: 772031b03d9d46e4ab03e15c8e17718c,
-    type: 3}
-  intersectionFoamColor: {r: 1, g: 1, b: 1, a: 1}
-  intersectionFoamMovement: {x: 0, y: 0}
-  intersectionFoamDirection: 0
-  intersectionFoamSpeed: 0
-  intersectionFoamScale: 0.19
-  intersectionFoamSampling: {x: 1, y: 0}
-  intersectionFoamCutoff: 1
-  intersectionFoamDistortion: 0
-  enableIntersectionEffects: 1
-  intersectionFoamBlend: 1
-  intersectionWaterBlend: 0
-  shoreFoamSpeed: 0
-  shoreFoamWidth: 0
-  shoreFoamFrequency: 0
-  shoreFoamBreakupStrength: 0
-  shoreFoamBreakupScale: 0
-  lighting: 0
-  lightingSmoothness: 0.71
-  lightingSpecularColor: {r: 1, g: 1, b: 1, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0, b: 0, a: 0}
-  lightingHardness: 0
-  normalsTexture: {fileID: 2800000, guid: a41da5f5671718b47bbc71e9ef691103, type: 3}
-  normalsMovement: {x: 0.04, y: 0.36}
-  normalsStrength: 0.42
-  normalsScale: 0.36
-  normalsSpeed: 0.04
-  refractionStrength: 0.022
-  waveVisuals: {x: 0.132, y: 7.9, z: 1.38}
-  waveSteepness: 0.132
-  waveLength: 7.9
-  waveSpeed: 1.38
-  waveDirections: {x: 0, y: 0.64, z: 1, w: 0.33}
-  waveDirection1: 0
-  waveDirection2: 0.64
-  waveDirection3: 1
-  waveDirection4: 0.33
-  waterUVs: 1
-  hideComponents: 0
-  enableFoamShadows: 0
-  enableRefraction: 0
-  meshRenderer: {fileID: 468930590}
-  meshFilter: {fileID: 468930591}
-  material: {fileID: 2100000, guid: d337fc5282607644ebb2f3575513265e, type: 2}
 --- !u!23 &468930590
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2788,6 +2637,7 @@ GameObject:
   - component: {fileID: 647125085}
   - component: {fileID: 647125084}
   - component: {fileID: 647125082}
+  - component: {fileID: 647125087}
   - component: {fileID: 647125083}
   m_Layer: 0
   m_Name: Map
@@ -2838,7 +2688,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 647125080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28e13122370c26b408b453db343b35c8, type: 3}
+  m_Script: {fileID: 11500000, guid: d6e8b68a2b1b41a41ada9974a123fc0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &647125084
@@ -2901,6 +2751,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &647125087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647125080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e85c54bc41942448b2b0fca19817b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &703911923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3989,7 +3851,7 @@ PrefabInstance:
     - target: {fileID: 1715875326, guid: 4ac7df741a9c0a2418ec19477729ee3d, type: 3}
       propertyPath: cursor
       value: 
-      objectReference: {fileID: 1000013227978282, guid: 4d7627d70abb4e247b7d958e6634b2f1,
+      objectReference: {fileID: 2606674281616214997, guid: e3dca41c7f752f94f9ee8568c367e07f,
         type: 3}
     - target: {fileID: 2093207351254462809, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
@@ -4396,157 +4258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16629e6f345891348b53ecc2ace028bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refractionExpanded: 0
-  vertexPaintingExpanded: 0
-  surfaceFoamExpanded: 0
-  foamShadowsExpanded: 0
-  intersectionEffectsExpanded: 0
-  planarReflectionsExpanded: 0
-  causticsExpanded: 0
-  reflectionStrength: 0.82
-  reflectionFresnel: 2.5
-  causticsStrength: 2.09
-  causticsTexture: {fileID: 2800000, guid: f2c40b951cee11943a1f6d5ec1b42f2c, type: 3}
-  causticsSplit: 0.318
-  causticsSpeed: 0.219
-  causticsScale: 2.41
-  causticsShadowMask: 1
-  causticsLightMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
-  useLegacyCaustics: 0
-  causticsDepth: 0.6
-  useColorGradient: 0
-  colorGradient:
-    serializedVersion: 2
-    key0: {r: 0.5764706, g: 0, b: 0.827451, a: 1}
-    key1: {r: 0.29411766, g: 0, b: 0.50980395, a: 1}
-    key2: {r: 0, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 1, b: 0, a: 0}
-    key4: {r: 1, g: 1, b: 0, a: 0}
-    key5: {r: 1, g: 0.49803922, b: 0, a: 0}
-    key6: {r: 1, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 9306
-    ctime1: 18612
-    ctime2: 27918
-    ctime3: 37224
-    ctime4: 46530
-    ctime5: 55836
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 7
-    m_NumAlphaKeys: 2
-  colorGradientTexture: {fileID: 0}
-  shallowColor: {r: 0, g: 0.7725491, b: 0.62352943, a: 0.5019608}
-  deepColor: {r: 0.01176471, g: 0.2861975, b: 0.50980073, a: 1}
-  colorDepth: 0.8
-  horizonColor: {r: 0, g: 0.22737402, b: 0.8, a: 1}
-  horizonDistance: 20
-  shoreFade: 1
-  shoreColor: {r: 0, g: 0.98039216, b: 0.3018838, a: 0}
-  shoreStrength: 0
-  shoreBlend: 1
-  shoreDepth: 0.74
-  waveColor: {r: 0, g: 0, b: 0, a: 0}
-  underwaterColor: {r: 0.20388189, g: 0.309762, b: 0.517647, a: 1}
-  underwaterColorStrength: 1
-  underwaterRefractionStrength: 0.099
-  surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
-  surfaceFoamSampling: {x: 0.62, y: 0}
-  surfaceFoamCutoff: 0.62
-  surfaceFoamDistortion: 0
-  surfaceFoamBlend: 1
-  surfaceFoamColor1: {r: 1, g: 1, b: 1, a: 0.3215686}
-  surfaceFoamColor2: {r: 1, g: 1, b: 1, a: 0.7294118}
-  surfaceFoamMovement: {x: 0.7, y: 0, z: 0.47, w: 0.01}
-  surfaceFoamDirection1: 0.7
-  surfaceFoamDirection2: 0.47
-  surfaceFoamSpeed1: 0
-  surfaceFoamSpeed2: 0.01
-  surfaceFoamTilingAndOffset: {x: -1, y: -1, z: 0.57, w: 0.22}
-  surfaceFoamOffsetX: -1
-  surfaceFoamOffsetY: -1
-  surfaceFoamScale1: 0.57
-  surfaceFoamScale2: 0.22
-  enableSurfaceFoam: 0
-  surfaceFoamHeightMask: 0
-  surfaceFoamHeightMaskSmoothness: 0
-  enableHeightMask: 0
-  foamShadowStrength: 0.45
-  foamShadowDepth: 10
-  surfaceFoamShadowProjection: 15
-  intersectionFoamShadowProjection: 4.6
-  foamMovement: 0
-  intersectionFoamDepth: 0.72
-  intersectionFoamTexture: {fileID: 2800000, guid: 772031b03d9d46e4ab03e15c8e17718c,
-    type: 3}
-  intersectionFoamColor: {r: 1, g: 1, b: 1, a: 1}
-  intersectionFoamMovement: {x: 0, y: 0}
-  intersectionFoamDirection: 0
-  intersectionFoamSpeed: 0
-  intersectionFoamScale: 0.19
-  intersectionFoamSampling: {x: 1, y: 0}
-  intersectionFoamCutoff: 1
-  intersectionFoamDistortion: 0
-  enableIntersectionEffects: 1
-  intersectionFoamBlend: 1
-  intersectionWaterBlend: 0
-  shoreFoamSpeed: 0
-  shoreFoamWidth: 0
-  shoreFoamFrequency: 0
-  shoreFoamBreakupStrength: 0
-  shoreFoamBreakupScale: 0
-  lighting: 0
-  lightingSmoothness: 0.71
-  lightingSpecularColor: {r: 1, g: 1, b: 1, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0, b: 0, a: 0}
-  lightingHardness: 0
-  normalsTexture: {fileID: 2800000, guid: a41da5f5671718b47bbc71e9ef691103, type: 3}
-  normalsMovement: {x: 0.04, y: 0.36}
-  normalsStrength: 0.42
-  normalsScale: 0.36
-  normalsSpeed: 0.04
-  refractionStrength: 0.022
-  waveVisuals: {x: 0.132, y: 7.9, z: 1.38}
-  waveSteepness: 0.132
-  waveLength: 7.9
-  waveSpeed: 1.38
-  waveDirections: {x: 0, y: 0.64, z: 1, w: 0.33}
-  waveDirection1: 0
-  waveDirection2: 0.64
-  waveDirection3: 1
-  waveDirection4: 0.33
-  waterUVs: 1
-  hideComponents: 0
-  enableFoamShadows: 0
-  enableRefraction: 0
-  meshRenderer: {fileID: 1063550225}
-  meshFilter: {fileID: 1063550226}
-  material: {fileID: 2100000, guid: d337fc5282607644ebb2f3575513265e, type: 2}
 --- !u!23 &1063550225
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5659,6 +5370,7 @@ GameObject:
   - component: {fileID: 1354291005}
   - component: {fileID: 1354291009}
   - component: {fileID: 1354291008}
+  - component: {fileID: 1354291010}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -5772,6 +5484,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ed3e57d6fcf3b54381467b85217b995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1354291010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354291003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea6359f808896a43aba97bc2ac1753e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1381309907
@@ -6840,7 +6564,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1576491951}
   - component: {fileID: 1576491954}
-  - component: {fileID: 1576491953}
   - component: {fileID: 1576491952}
   m_Layer: 0
   m_Name: MinimapCamera
@@ -6894,14 +6617,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1576491953
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576491950}
-  m_Enabled: 1
 --- !u!20 &1576491954
 Camera:
   m_ObjectHideFlags: 0
@@ -7412,8 +7127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _description: {fileID: 1719468885}
-  _text: Hello M.Morgan this your check list of what your going to do in your fucking
-    life
+  _text: Hello mddd ddddd ggggg kkkkkk ;;lkjih aseerfet eeeee tttttt oooooooo [[[[[[[
 --- !u!114 &1719468885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8182,157 +7896,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16629e6f345891348b53ecc2ace028bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refractionExpanded: 0
-  vertexPaintingExpanded: 0
-  surfaceFoamExpanded: 0
-  foamShadowsExpanded: 0
-  intersectionEffectsExpanded: 0
-  planarReflectionsExpanded: 0
-  causticsExpanded: 0
-  reflectionStrength: 0.82
-  reflectionFresnel: 2.5
-  causticsStrength: 2.09
-  causticsTexture: {fileID: 2800000, guid: f2c40b951cee11943a1f6d5ec1b42f2c, type: 3}
-  causticsSplit: 0.318
-  causticsSpeed: 0.219
-  causticsScale: 2.41
-  causticsShadowMask: 1
-  causticsLightMatrix:
-    e00: 1
-    e01: 0
-    e02: 0
-    e03: 0
-    e10: 0
-    e11: 1
-    e12: 0
-    e13: 0
-    e20: 0
-    e21: 0
-    e22: 1
-    e23: 0
-    e30: 0
-    e31: 0
-    e32: 0
-    e33: 1
-  useLegacyCaustics: 0
-  causticsDepth: 0.6
-  useColorGradient: 0
-  colorGradient:
-    serializedVersion: 2
-    key0: {r: 0.5764706, g: 0, b: 0.827451, a: 1}
-    key1: {r: 0.29411766, g: 0, b: 0.50980395, a: 1}
-    key2: {r: 0, g: 0, b: 1, a: 0}
-    key3: {r: 0, g: 1, b: 0, a: 0}
-    key4: {r: 1, g: 1, b: 0, a: 0}
-    key5: {r: 1, g: 0.49803922, b: 0, a: 0}
-    key6: {r: 1, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 9306
-    ctime1: 18612
-    ctime2: 27918
-    ctime3: 37224
-    ctime4: 46530
-    ctime5: 55836
-    ctime6: 65535
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 1
-    m_NumColorKeys: 7
-    m_NumAlphaKeys: 2
-  colorGradientTexture: {fileID: 0}
-  shallowColor: {r: 0, g: 0.7725491, b: 0.62352943, a: 0.5019608}
-  deepColor: {r: 0.01176471, g: 0.28619745, b: 0.50980073, a: 1}
-  colorDepth: 0.8
-  horizonColor: {r: 0, g: 0.22737399, b: 0.8, a: 1}
-  horizonDistance: 20
-  shoreFade: 1
-  shoreColor: {r: 0, g: 0.98039216, b: 0.30188376, a: 0}
-  shoreStrength: 0
-  shoreBlend: 1
-  shoreDepth: 0.74
-  waveColor: {r: 0, g: 0, b: 0, a: 0}
-  underwaterColor: {r: 0.20388186, g: 0.30976197, b: 0.517647, a: 1}
-  underwaterColorStrength: 1
-  underwaterRefractionStrength: 0.099
-  surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
-  surfaceFoamSampling: {x: 0.62, y: 0}
-  surfaceFoamCutoff: 0.62
-  surfaceFoamDistortion: 0
-  surfaceFoamBlend: 1
-  surfaceFoamColor1: {r: 1, g: 1, b: 1, a: 0.3215686}
-  surfaceFoamColor2: {r: 1, g: 1, b: 1, a: 0.7294118}
-  surfaceFoamMovement: {x: 0.7, y: 0, z: 0.47, w: 0.01}
-  surfaceFoamDirection1: 0.7
-  surfaceFoamDirection2: 0.47
-  surfaceFoamSpeed1: 0
-  surfaceFoamSpeed2: 0.01
-  surfaceFoamTilingAndOffset: {x: -1, y: -1, z: 0.57, w: 0.22}
-  surfaceFoamOffsetX: -1
-  surfaceFoamOffsetY: -1
-  surfaceFoamScale1: 0.57
-  surfaceFoamScale2: 0.22
-  enableSurfaceFoam: 0
-  surfaceFoamHeightMask: 0
-  surfaceFoamHeightMaskSmoothness: 0
-  enableHeightMask: 0
-  foamShadowStrength: 0.45
-  foamShadowDepth: 10
-  surfaceFoamShadowProjection: 15
-  intersectionFoamShadowProjection: 4.6
-  foamMovement: 0
-  intersectionFoamDepth: 0.72
-  intersectionFoamTexture: {fileID: 2800000, guid: 772031b03d9d46e4ab03e15c8e17718c,
-    type: 3}
-  intersectionFoamColor: {r: 1, g: 1, b: 1, a: 1}
-  intersectionFoamMovement: {x: 0, y: 0}
-  intersectionFoamDirection: 0
-  intersectionFoamSpeed: 0
-  intersectionFoamScale: 0.19
-  intersectionFoamSampling: {x: 1, y: 0}
-  intersectionFoamCutoff: 1
-  intersectionFoamDistortion: 0
-  enableIntersectionEffects: 1
-  intersectionFoamBlend: 1
-  intersectionWaterBlend: 0
-  shoreFoamSpeed: 0
-  shoreFoamWidth: 0
-  shoreFoamFrequency: 0
-  shoreFoamBreakupStrength: 0
-  shoreFoamBreakupScale: 0
-  lighting: 0
-  lightingSmoothness: 0.71
-  lightingSpecularColor: {r: 1, g: 1, b: 1, a: 0}
-  lightingDiffuseColor: {r: 0, g: 0, b: 0, a: 0}
-  lightingHardness: 0
-  normalsTexture: {fileID: 2800000, guid: a41da5f5671718b47bbc71e9ef691103, type: 3}
-  normalsMovement: {x: 0.04, y: 0.36}
-  normalsStrength: 0.42
-  normalsScale: 0.36
-  normalsSpeed: 0.04
-  refractionStrength: 0.022
-  waveVisuals: {x: 0.132, y: 7.9, z: 1.38}
-  waveSteepness: 0.132
-  waveLength: 7.9
-  waveSpeed: 1.38
-  waveDirections: {x: 0, y: 0.64, z: 1, w: 0.33}
-  waveDirection1: 0
-  waveDirection2: 0.64
-  waveDirection3: 1
-  waveDirection4: 0.33
-  waterUVs: 1
-  hideComponents: 0
-  enableFoamShadows: 0
-  enableRefraction: 0
-  meshRenderer: {fileID: 2077337076}
-  meshFilter: {fileID: 2077337077}
-  material: {fileID: 2100000, guid: d337fc5282607644ebb2f3575513265e, type: 2}
 --- !u!23 &2077337076
 MeshRenderer:
   m_ObjectHideFlags: 0

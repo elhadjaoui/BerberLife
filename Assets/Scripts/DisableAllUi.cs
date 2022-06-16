@@ -14,6 +14,8 @@ class DisableAllUi : MonoBehaviour
     void Start()
     {
         input.OnAbuttonPressed += DisableAll;
+        input.OnBbuttonPressed += DisableAll;
+        input.OnLeftThumbStickPressed += DisableAll;
     }
 
     void DisableAll()

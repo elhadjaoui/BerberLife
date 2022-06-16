@@ -11,9 +11,11 @@ using Valve.VR;
 #endif
 
 
-namespace BNG {
+namespace BNG
+{
 
-    public enum ControllerHand {
+    public enum ControllerHand
+    {
         Left,
         Right,
         None
@@ -22,7 +24,8 @@ namespace BNG {
     /// <summary>
     /// Controller Options available to bind buttons to via Inspector. You can use GetControllerBindingValue() to determine if that button has been pressed.
     /// </summary>
-    public enum ControllerBinding {
+    public enum ControllerBinding
+    {
         None,
         AButton,
         AButtonDown,
@@ -50,7 +53,8 @@ namespace BNG {
         BackButtonDown
     }
 
-    public enum InputAxis {
+    public enum InputAxis
+    {
         None,
         LeftThumbStickAxis,
         LeftTouchPadAxis,
@@ -58,7 +62,8 @@ namespace BNG {
         RightTouchPadAxis
     }
 
-    public enum ControllerType {
+    public enum ControllerType
+    {
         None,
         Unknown,
         OculusTouch,
@@ -66,7 +71,8 @@ namespace BNG {
         Knuckles
     }
 
-    public enum HandControl {
+    public enum HandControl
+    {
         LeftGrip,
         RightGrip,
         LeftTrigger,
@@ -74,25 +80,29 @@ namespace BNG {
         None
     }
 
-    public enum GrabButton {
+    public enum GrabButton
+    {
         Grip,
         Trigger,
         Inherit
     }
 
-    public enum HoldType {
+    public enum HoldType
+    {
         HoldDown, // Hold down the grab button
         Toggle,   // Click the grab button down to switch between hold and release
         Inherit   // Inherit from Grabber
-    }    
+    }
 
-    public enum XRInputSource {
+    public enum XRInputSource
+    {
         XRInput,
         OVRInput,
         SteamVR
     }
 
-    public enum SDKProvider {
+    public enum SDKProvider
+    {
         Unknown,
         OculusSDK,
         OpenVR
@@ -101,17 +111,22 @@ namespace BNG {
     /// <summary>
     /// A proxy for handling input from various input providers such as OVRInput, XRInput, and SteamVR. 
     /// </summary>
-    public class InputBridge : MonoBehaviour {
+    public class InputBridge : MonoBehaviour
+    {
 
         /// <summary>
         /// Instance of our Singleton
         /// </summary>
-      
-        public static InputBridge Instance {
-            get {
-                if (_instance == null) {
+
+        public static InputBridge Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
                     _instance = FindObjectOfType<InputBridge>();
-                    if (_instance == null) {
+                    if (_instance == null)
+                    {
                         _instance = new GameObject("InputBridge").AddComponent<InputBridge>();
                     }
                 }
@@ -120,9 +135,9 @@ namespace BNG {
         }
         private static InputBridge _instance;
 
-        [SerializeField]        
+        [SerializeField]
         public XRInputSource InputSource = XRInputSource.XRInput;
-       
+
         [SerializeField]
         public TrackingOriginModeFlags TrackingOrigin = TrackingOriginModeFlags.Floor;
 
@@ -323,14 +338,27 @@ namespace BNG {
 
         // those Lines Added by Mohamed El Hadjaoui
         public event Action OnAbuttonPressed;
+        public event Action OnBbuttonPressed;
+        public event Action OnLeftThumbStickPressed;
         public void AbuttonPressed()
         {
-                OnAbuttonPressed?.Invoke();
+            OnAbuttonPressed?.Invoke();
+        }
+        public void LeftThumbStickPressed()
+        {
+            OnLeftThumbStickPressed?.Invoke();
+        }
+        public void BbuttonPressed()
+        {
+            OnBbuttonPressed?.Invoke();
         }
 
-        private void Awake() {
+
+        private void Awake()
+        {
             // Destroy any duplicate instances that may have been created
-            if (_instance != null && _instance != this) {
+            if (_instance != null && _instance != this)
+            {
                 Destroy(this);
                 return;
             }
@@ -351,7 +379,8 @@ namespace BNG {
         }
 
 
-        void Start() {
+        void Start()
+        {
 
             SetTrackingOriginMode(TrackingOrigin);
 
@@ -363,20 +392,24 @@ namespace BNG {
             SteamVRSupport = true;
             SteamVR.Initialize();
 #endif
-        }       
+        }
 
-        void Update() {
+        void Update()
+        {
             UpdateDeviceActive();
             UpdateInputs();
         }
 
-        public virtual void UpdateInputs() {
+        public virtual void UpdateInputs()
+        {
             // SteamVR uses an action system
-            if (InputSource == XRInputSource.SteamVR && SteamVRSupport) {
+            if (InputSource == XRInputSource.SteamVR && SteamVRSupport)
+            {
                 UpdateSteamInput();
             }
             // Use OVRInput to get more Oculus Specific inputs, such as "Near Touch"
-            else if (InputSource == XRInputSource.OVRInput) {
+            else if (InputSource == XRInputSource.OVRInput)
+            {
 #if OCULUS_INTEGRATION
                 LeftThumbstickAxis = ApplyDeadZones(OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick), ThumbstickDeadzoneX, ThumbstickDeadzoneY);
                 RightThumbstickAxis = ApplyDeadZones(OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick), ThumbstickDeadzoneX, ThumbstickDeadzoneY);
@@ -435,7 +468,8 @@ namespace BNG {
 #endif
             }
             // Use XRInput
-            else {
+            else
+            {
 #if UNITY_2019_3_OR_NEWER
                 // Refresh XR devices
                 InputDevices.GetDevices(devices);
@@ -510,9 +544,9 @@ namespace BNG {
                 if (prevBool != AButton)
                 {
                     AbuttonPressed(); // Trigger the event
-                    Debug.Log("shiiit");
+
                 }
-                
+
                 AButtonDown = prevBool == false && AButton == true;
                 AButtonUp = prevBool == true && AButton == false;
 
@@ -545,16 +579,19 @@ namespace BNG {
             OnInputsUpdated?.Invoke();
         }
 
-        public virtual void UpdateSteamInput() {
+        public virtual void UpdateSteamInput()
+        {
 #if STEAM_VR_SDK
 
             LeftThumbstickAxis = ApplyDeadZones(SteamVR_Actions.vRIF_LeftThumbstickAxis.axis, ThumbstickDeadzoneX, ThumbstickDeadzoneY);
             RightThumbstickAxis = ApplyDeadZones(SteamVR_Actions.vRIF_RightThumbstickAxis.axis, ThumbstickDeadzoneX, ThumbstickDeadzoneY);
             LeftThumbstick = SteamVR_Actions.vRIF_LeftThumbstickDown.state;
-            LeftThumbstickDown = SteamVR_Actions.vRIF_LeftThumbstickDown.stateDown;
+            if (LeftThumbstick)
+                    LeftThumbStickPressed();
+                LeftThumbstickDown = SteamVR_Actions.vRIF_LeftThumbstickDown.stateDown;
             RightThumbstick = SteamVR_Actions.vRIF_RightThumbstickDown.state;
             RightThumbstickDown = SteamVR_Actions.vRIF_RightThumbstickDown.stateDown;
-            
+
             LeftThumbNear = SteamVR_Actions.vRIF_LeftThumbstickNear.state;
             RightThumbNear = SteamVR_Actions.vRIF_RightThumbstickNear.state;
 
@@ -565,19 +602,23 @@ namespace BNG {
             prevVal = RightGrip;
             RightGrip = correctValue(SteamVR_Actions.vRIF_RightGrip.axis);
             RightGripDown = prevVal < _downThreshold && RightGrip >= _downThreshold;
-            
+
             LeftTrigger = correctValue(SteamVR_Actions.vRIF_LeftTrigger.axis);
             RightTrigger = correctValue(SteamVR_Actions.vRIF_RightTrigger.axis);
-              // Lines Added by Mohamed El Hadjaoui
+            // Lines Added by Mohamed El Hadjaoui
             var prevBool = AButton;
             AButton = SteamVR_Actions.vRIF_AButton.state;
-             if (prevBool != AButton)
-                {
-                    AbuttonPressed(); // Trigger the event
-                    Debug.Log("shiiit");
-                }
+            if (prevBool != AButton)
+            {
+                AbuttonPressed(); // Trigger the event
+            }
             AButtonDown = SteamVR_Actions.vRIF_AButton.stateDown;
+            var prevBBool = BButton;
             BButton = SteamVR_Actions.vRIF_BButton.state;
+            if (prevBBool != BButton)
+            {
+                BbuttonPressed(); // Trigger the event
+            }
             BButtonDown = SteamVR_Actions.vRIF_BButton.stateDown;
             XButton = SteamVR_Actions.vRIF_XButton.state;
             XButtonDown = SteamVR_Actions.vRIF_XButton.stateDown;
@@ -586,12 +627,14 @@ namespace BNG {
 #endif
         }
 
-        public virtual void UpdateDeviceActive() {
+        public virtual void UpdateDeviceActive()
+        {
 
             InputDevice hmd = GetHMD();
 
             // Can bail early
-            if (hmd.isValid == false) {
+            if (hmd.isValid == false)
+            {
                 HMDActive = false;
                 return;
             }
@@ -599,14 +642,17 @@ namespace BNG {
             // Make sure the device supports the presence feature
             bool userPresent = false;
             bool presenceFeatureSupported = hmd.TryGetFeatureValue(CommonUsages.userPresence, out userPresent);
-            if(presenceFeatureSupported) {
+            if (presenceFeatureSupported)
+            {
                 HMDActive = userPresent;
             }
-            else {
+            else
+            {
 #if UNITY_2019_4
                 // 2019.4 XRDevice.userPresence works, but CommonUsage does not
                 // In 2020 XRDevice.userPresence does not work.
-                if (XRDevice.userPresence == UserPresenceState.NotPresent) {
+                if (XRDevice.userPresence == UserPresenceState.NotPresent)
+                {
                     HMDActive = false;
                     return;
                 }
@@ -621,11 +667,13 @@ namespace BNG {
         /// </summary>
         /// <param name="inputValue"></param>
         /// <returns></returns>
-        float correctValue(float inputValue) {
+        float correctValue(float inputValue)
+        {
             return (float)System.Math.Round(inputValue * 1000f) / 1000f;
         }
 
-        public bool GetControllerBindingValue(ControllerBinding val) {
+        public bool GetControllerBindingValue(ControllerBinding val)
+        {
             if (val == ControllerBinding.AButton && AButton) { return true; }
             if (val == ControllerBinding.AButtonDown && AButtonDown) { return true; }
             if (val == ControllerBinding.BButton && BButton) { return true; }
@@ -654,7 +702,8 @@ namespace BNG {
             return false;
         }
 
-        public Vector2 GetInputAxisValue(InputAxis val) {
+        public Vector2 GetInputAxisValue(InputAxis val)
+        {
             if (val == InputAxis.LeftThumbStickAxis) { return LeftThumbstickAxis; }
             if (val == InputAxis.RightThumbStickAxis) { return RightThumbstickAxis; }
             if (val == InputAxis.LeftTouchPadAxis) { return LeftTouchPadAxis; }
@@ -663,13 +712,16 @@ namespace BNG {
             return Vector3.zero;
         }
 
-        Vector2 ApplyDeadZones(Vector2 pos, float deadZoneX, float deadZoneY) {
+        Vector2 ApplyDeadZones(Vector2 pos, float deadZoneX, float deadZoneY)
+        {
 
-            if (Mathf.Abs(pos.x) < deadZoneX) {
+            if (Mathf.Abs(pos.x) < deadZoneX)
+            {
                 pos.x = 0f;
             }
 
-            if (Mathf.Abs(pos.y) < deadZoneY) {
+            if (Mathf.Abs(pos.y) < deadZoneY)
+            {
                 pos.y = 0f;
             }
 
@@ -677,11 +729,13 @@ namespace BNG {
         }
 
         // Called when an inpute device has changed (connect / disconnect, etc.)
-        void onDeviceChanged(InputDevice inputDevice) {
+        void onDeviceChanged(InputDevice inputDevice)
+        {
             setDeviceProperties();
         }
 
-        void setDeviceProperties() {
+        void setDeviceProperties()
+        {
 
             // Update device properties such as device name, controller properties, etc.
             // We only want to update this information if a device has changed in order to skip unnecessary checks every frame
@@ -708,41 +762,49 @@ namespace BNG {
         /// Returns true if the controllers support the 'indexTouch' XR input mapping.Currently only Oculus devices on the Oculus SDK support index touch.OpenVR is not supported.
         /// </summary>
         /// <returns></returns>
-        public virtual bool GetSupportsIndexTouch() {
+        public virtual bool GetSupportsIndexTouch()
+        {
             return IsOculusDevice && LoadedSDK == SDKProvider.OculusSDK;
         }
 
-        public virtual SDKProvider GetLoadedSDK() {
+        public virtual SDKProvider GetLoadedSDK()
+        {
 
             // Can exit early if no device name has been picked up yet
-            if (XRSettings.loadedDeviceName == null) {
+            if (XRSettings.loadedDeviceName == null)
+            {
                 return SDKProvider.Unknown;
             }
 
             string deviceName = XRSettings.loadedDeviceName.ToLower();
 
             // Example : "oculus display"
-            if (deviceName.StartsWith("oculus")) {
+            if (deviceName.StartsWith("oculus"))
+            {
                 return SDKProvider.OculusSDK;
             }
             // Example : "OpenVR Display"
-            else if (deviceName.StartsWith("openvr")) {
+            else if (deviceName.StartsWith("openvr"))
+            {
                 return SDKProvider.OpenVR;
             }
 
             return SDKProvider.Unknown;
         }
 
-        public virtual bool GetSupportsThumbTouch() {
+        public virtual bool GetSupportsThumbTouch()
+        {
             return IsOculusDevice && LoadedSDK == SDKProvider.OculusSDK;
         }
 
-        public virtual bool GetIsOculusDevice() {
+        public virtual bool GetIsOculusDevice()
+        {
 
             var primaryHMD = GetHMD();
 
             // OpenVR Format
-            if (primaryHMD != null && primaryHMD.manufacturer == "Oculus") {
+            if (primaryHMD != null && primaryHMD.manufacturer == "Oculus")
+            {
                 return true;
             }
 
@@ -753,17 +815,20 @@ namespace BNG {
 #endif
         }
 
-        public virtual bool GetIsOculusQuest() {
+        public virtual bool GetIsOculusQuest()
+        {
 #if UNITY_2019_2_OR_NEWER
 
             var primaryHMD = GetHMD();
 
             // Example : "OpenVR Headset(Oculus Quest)"
-            if (primaryHMD != null && primaryHMD.name != null && primaryHMD.name.EndsWith("(Oculus Quest)")) {
+            if (primaryHMD != null && primaryHMD.name != null && primaryHMD.name.EndsWith("(Oculus Quest)"))
+            {
                 return true;
             }
             // Non-OpenVR version use "contains" on string. 
-            else if (primaryHMD != null && primaryHMD.name != null && primaryHMD.name.Contains("Oculus Quest")) {
+            else if (primaryHMD != null && primaryHMD.name != null && primaryHMD.name.Contains("Oculus Quest"))
+            {
                 return true;
             }
 
@@ -778,13 +843,15 @@ namespace BNG {
 #endif
         }
 
-        public virtual bool GetIsHTCDevice() {
+        public virtual bool GetIsHTCDevice()
+        {
             // Is HTC Device
 #if UNITY_2019_2_OR_NEWER
             var primaryHMD = GetHMD();
 
             // OpenVR Format
-            if (primaryHMD != null && primaryHMD.manufacturer == "HTC") {
+            if (primaryHMD != null && primaryHMD.manufacturer == "HTC")
+            {
                 return true;
             }
 
@@ -794,7 +861,8 @@ namespace BNG {
 #endif
         }
 
-        public InputDevice GetHMD() {
+        public InputDevice GetHMD()
+        {
             InputDevices.GetDevices(devices);
 
             var hmds = new List<InputDevice>();
@@ -804,7 +872,8 @@ namespace BNG {
             return hmds.FirstOrDefault();
         }
 
-        public InputDevice GetLeftController() {
+        public InputDevice GetLeftController()
+        {
             InputDevices.GetDevices(devices);
 
             var leftHandedControllers = new List<InputDevice>();
@@ -813,7 +882,8 @@ namespace BNG {
             return leftHandedControllers.FirstOrDefault();
         }
 
-        public InputDevice GetRightController() {
+        public InputDevice GetRightController()
+        {
             InputDevices.GetDevices(devices);
 
             var rightHandedControllers = new List<InputDevice>();
@@ -823,15 +893,19 @@ namespace BNG {
             return rightHandedControllers.FirstOrDefault();
         }
 
-        public virtual ControllerType GetControllerType() {
+        public virtual ControllerType GetControllerType()
+        {
 
-            if (IsValveIndexController) {
+            if (IsValveIndexController)
+            {
                 return ControllerType.Knuckles;
             }
-            else if (IsOculusDevice) {
+            else if (IsOculusDevice)
+            {
                 return ControllerType.OculusTouch;
             }
-            else if (IsHTCDevice) {
+            else if (IsHTCDevice)
+            {
                 return ControllerType.Wand;
             }
 
@@ -842,28 +916,32 @@ namespace BNG {
         /// Get the name of the primary controller
         /// </summary>
         /// <returns>The name of the primary controller. Returns empty if no controller found</returns>
-        public virtual string GetControllerName() {
+        public virtual string GetControllerName()
+        {
             var rightHandedControllers = new List<InputDevice>();
             var dc = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
             InputDevices.GetDevicesWithCharacteristics(dc, rightHandedControllers);
             var primaryRightController = rightHandedControllers.FirstOrDefault();
 
             // Return name of the found controller
-            if (primaryRightController != null && !System.String.IsNullOrEmpty(primaryRightController.name)) {
+            if (primaryRightController != null && !System.String.IsNullOrEmpty(primaryRightController.name))
+            {
                 return primaryRightController.name;
             }
 
             return string.Empty;
         }
 
-        public virtual bool GetIsValveIndexController() {
+        public virtual bool GetIsValveIndexController()
+        {
             var rightHandedControllers = new List<InputDevice>();
             var dc = InputDeviceCharacteristics.HeldInHand | InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
             InputDevices.GetDevicesWithCharacteristics(dc, rightHandedControllers);
             var primaryRightController = rightHandedControllers.FirstOrDefault();
 
             // Are we using Valve Index Controllers?
-            if (primaryRightController != null && !System.String.IsNullOrEmpty(primaryRightController.name)) {
+            if (primaryRightController != null && !System.String.IsNullOrEmpty(primaryRightController.name))
+            {
                 return primaryRightController.name.Contains("Knuckles");
             }
 
@@ -871,25 +949,30 @@ namespace BNG {
         }
 
 #if UNITY_2019_2_OR_NEWER
-        float getFeatureUsage(InputDevice device, InputFeatureUsage<float> usage, bool clamp = true) {
+        float getFeatureUsage(InputDevice device, InputFeatureUsage<float> usage, bool clamp = true)
+        {
             float val;
             device.TryGetFeatureValue(usage, out val);
 
             return Mathf.Clamp01(val);
         }
 
-        bool getFeatureUsage(InputDevice device, InputFeatureUsage<bool> usage) {
+        bool getFeatureUsage(InputDevice device, InputFeatureUsage<bool> usage)
+        {
             bool val;
-            if (device.TryGetFeatureValue(usage, out val)) {
+            if (device.TryGetFeatureValue(usage, out val))
+            {
                 return val;
             }
 
             return val;
         }
 
-        Vector2 getFeatureUsage(InputDevice device, InputFeatureUsage<Vector2> usage) {
+        Vector2 getFeatureUsage(InputDevice device, InputFeatureUsage<Vector2> usage)
+        {
             Vector2 val;
-            if (device.TryGetFeatureValue(usage, out val)) {
+            if (device.TryGetFeatureValue(usage, out val))
+            {
                 return val;
             }
 
@@ -897,10 +980,12 @@ namespace BNG {
         }
 #endif
 
-        public virtual void SetTrackingOriginMode(TrackingOriginModeFlags trackingOrigin) {
+        public virtual void SetTrackingOriginMode(TrackingOriginModeFlags trackingOrigin)
+        {
 #if UNITY_2019_4
             // 2019.4 Needs to use XRDevice.SetTrackingSpaceType; TrySetTrackingOriginMode does not function properly.
-            if (trackingOrigin == TrackingOriginModeFlags.Floor) {
+            if (trackingOrigin == TrackingOriginModeFlags.Floor)
+            {
                 XRDevice.SetTrackingSpaceType(TrackingSpaceType.RoomScale);
             }
 #endif
@@ -908,7 +993,8 @@ namespace BNG {
             StartCoroutine(changeOriginModeRoutine(trackingOrigin));
         }
 
-        IEnumerator changeOriginModeRoutine(TrackingOriginModeFlags trackingOrigin) {
+        IEnumerator changeOriginModeRoutine(TrackingOriginModeFlags trackingOrigin)
+        {
 
             // Wait one frame as Unity has an issue with calling this immediately
             yield return null;
@@ -917,17 +1003,22 @@ namespace BNG {
             SubsystemManager.GetInstances(subsystems);
             int subSystemsCount = subsystems.Count;
 
-            if (subSystemsCount > 0) {
-                for (int x = 0; x < subSystemsCount; x++) {
-                    if (subsystems[x].TrySetTrackingOriginMode(trackingOrigin)) {
+            if (subSystemsCount > 0)
+            {
+                for (int x = 0; x < subSystemsCount; x++)
+                {
+                    if (subsystems[x].TrySetTrackingOriginMode(trackingOrigin))
+                    {
                         Debug.Log("Successfully set TrackingOriginMode to " + trackingOrigin);
                     }
-                    else {
+                    else
+                    {
                         Debug.Log("Failed to set TrackingOriginMode to " + trackingOrigin);
                     }
                 }
             }
-            else {
+            else
+            {
 #if UNITY_2020
                 Debug.LogWarning("No subsystems detected. Unable to set Tracking Origin to " + trackingOrigin);
 #endif
@@ -935,32 +1026,41 @@ namespace BNG {
         }
 
         // Start Vibration on controller
-        public void VibrateController(float frequency, float amplitude, float duration, ControllerHand hand) {
-            if (InputSource == XRInputSource.XRInput) {
-                
-                if (hand == ControllerHand.Right) {
+        public void VibrateController(float frequency, float amplitude, float duration, ControllerHand hand)
+        {
+            if (InputSource == XRInputSource.XRInput)
+            {
+
+                if (hand == ControllerHand.Right)
+                {
                     InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Right, devices);
                 }
-                else {
+                else
+                {
                     InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.Left, devices);
                 }
 
-                for (int x = 0; x < devices.Count; x++) {
+                for (int x = 0; x < devices.Count; x++)
+                {
                     HapticCapabilities capabilities;
-                    if (devices[x].TryGetHapticCapabilities(out capabilities)) {
-                        if (capabilities.supportsImpulse) {
+                    if (devices[x].TryGetHapticCapabilities(out capabilities))
+                    {
+                        if (capabilities.supportsImpulse)
+                        {
                             uint channel = 0;
                             devices[x].SendHapticImpulse(channel, amplitude, duration);
                         }
                     }
                 }
             }
-            else if (InputSource == XRInputSource.OVRInput) {
+            else if (InputSource == XRInputSource.OVRInput)
+            {
                 StartCoroutine(Vibrate(frequency, amplitude, duration, hand));
             }
         }
 
-        IEnumerator Vibrate(float frequency, float amplitude, float duration, ControllerHand hand) {
+        IEnumerator Vibrate(float frequency, float amplitude, float duration, ControllerHand hand)
+        {
 #if OCULUS_INTEGRATION
             // Start vibration
             if (hand == ControllerHand.Right) {
